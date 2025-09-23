@@ -10,7 +10,7 @@ import re
 
 # Base do site
 BASE_URL = "https://panelinha.com.br"
-SEARCH_URL = "https://panelinha.com.br/busca?query=&page={}"
+SEARCH_URL = "https://panelinha.com.br/busca?query=&page={}&menu%5Bpage_type%5D=Receitas"
 
 # Inicializa o Selenium com WebDriver Manager
 def init_driver():
@@ -22,10 +22,11 @@ def init_driver():
     driver = webdriver.Chrome(service=service, options=options)
     return driver
 
-# Coleta links de receitas de várias páginas da busca
-def get_recipe_links(driver, max_pages=3):
+# Coleta links de receitas de todas as páginas da busca
+def get_recipe_links(driver):
     links = []
-    for page in range(1, max_pages + 1):
+    page = 1
+    while page <= 235:  # Vi que as receitas vão até a página 233, então deixei esse limite aí, só por precaução, mas poderia ser while True
         url = SEARCH_URL.format(page)
         print(f"Acessando página {page}: {url}")
         driver.get(url)
@@ -34,8 +35,8 @@ def get_recipe_links(driver, max_pages=3):
         soup = BeautifulSoup(driver.page_source, "html.parser")
         container = soup.select_one(".hitsContainer2C .ais-Hits ol")
         if not container:
-            print(f"Nenhum resultado encontrado na página {page}")
-            continue
+            print(f"Nenhum resultado encontrado na página {page}, parada.")
+            break
 
         for a in container.select("li a[href]"):
             recipe_url = urljoin(BASE_URL, a["href"])
@@ -43,6 +44,8 @@ def get_recipe_links(driver, max_pages=3):
             if re.match(r"^https://panelinha\.com\.br/receita/.+", recipe_url):
                 if recipe_url not in links:
                     links.append(recipe_url)
+
+        page += 1  # passa para a próxima página
 
     return links
 
@@ -84,8 +87,8 @@ if __name__ == "__main__":
     driver = init_driver()
 
     try:
-        # Coleta links das receitas (começa com 3 páginas para teste)
-        receitas_links = get_recipe_links(driver, max_pages=3)
+        # Coleta links de todas as receitas
+        receitas_links = get_recipe_links(driver)
         print("Total de receitas encontradas:", len(receitas_links))
 
         # Coleta os dados de cada receita
