@@ -1,7 +1,18 @@
+# Arquivos gerados pelo preprocessing
+*.npy
+tokenizer.pkl
+corpus.txt
+
+# Outros arquivos temporários
+.DS_Store
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
 *$py.class
+*.pyo
+*.pyd
+*.pyc
 
 # C extensions
 *.so
