@@ -1,7 +1,6 @@
 # Arquivos gerados pelo preprocessing
 *.npy
 tokenizer.pkl
-corpus.txt
 
 # Outros arquivos temporários
 .DS_Store
