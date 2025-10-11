@@ -1,6 +1,6 @@
 # Arquivos gerados pelo preprocessing
-*.npy
-tokenizer.pkl
+#*.npy
+#tokenizer.pkl
 
 # Outros arquivos temporários
 .DS_Store
