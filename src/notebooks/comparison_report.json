@@ -1,0 +1,33 @@
+{
+  "baseline_metrics": {
+    "final_train_perplexity": 4.09,
+    "final_val_perplexity": 8.43,
+    "final_train_accuracy": 0.5962,
+    "final_val_accuracy": 0.5475,
+    "vocab_size": 4056,
+    "max_sequence_len": 212
+  },
+  "fasttext_metrics": {
+    "fasttext_train_perplexity": 5.27,
+    "fasttext_val_perplexity": 8.06,
+    "fasttext_coverage": 92.7,
+    "final_val_accuracy": 0.5429,
+    "embedding_dim": 300,
+    "training_phases": "10+10 \u00e9pocas"
+  },
+  "improvement_percentage": 4.38908659549228,
+  "temperatures_analyzed": [
+    0.7,
+    1.0,
+    1.3
+  ],
+  "final_comparison": {
+    "best_model": "FastText",
+    "reason": "Menor perplexidade na valida\u00e7\u00e3o indica melhor capacidade de generaliza\u00e7\u00e3o"
+  },
+  "training_time_comparison": {
+    "baseline_epochs": 20,
+    "fasttext_epochs": 20,
+    "note": "FastText incluiu fase adicional de fine-tuning"
+  }
+}

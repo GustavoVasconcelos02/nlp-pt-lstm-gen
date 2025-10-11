@@ -1,0 +1,8 @@
+{
+  "fasttext_train_perplexity": 5.27,
+  "fasttext_val_perplexity": 8.06,
+  "fasttext_coverage": 92.7,
+  "final_val_accuracy": 0.5429,
+  "embedding_dim": 300,
+  "training_phases": "10+10 \u00e9pocas"
+}
