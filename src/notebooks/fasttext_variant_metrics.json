@@ -4,5 +4,6 @@
   "fasttext_coverage": 92.7,
   "final_val_accuracy": 0.5429,
   "embedding_dim": 300,
-  "training_phases": "10+10 \u00e9pocas"
+  "training_phases": "10+10 \u00e9pocas",
+  "fasttext_test_perplexity": 8.658198
 }

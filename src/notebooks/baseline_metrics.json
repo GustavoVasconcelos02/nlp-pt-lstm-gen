@@ -4,5 +4,6 @@
   "final_train_accuracy": 0.5962,
   "final_val_accuracy": 0.5475,
   "vocab_size": 4056,
-  "max_sequence_len": 212
+  "max_sequence_len": 212,
+  "final_test_perplexity": 8.903583
 }
